@@ -40,7 +40,7 @@ public class Main {
         boolean readSize = true;
         // Reading data using readLine
         while (readSize) {
-            System.out.println("Enter positive integers bigger for X and Y divided by space:");
+            System.out.println("Enter positive integers bigger than ZERO for X and Y divided by space:");
             try {
                 size = getInput();
                 readSize = !validateSize(size);
