@@ -15,34 +15,16 @@ public class Element {
         initRandomNums(x, y);
     }
 
-    public List<Integer> getValues(int x, int y) throws OutOfLines {
-        validate(x, y);
-        return getValuesFromArr(x, y);
+    public int getLenghtX() {
+        return this.randomNums.length;
     }
 
-    private List<Integer> getValuesFromArr(int x, int y) {
-        List<Integer> points = new ArrayList<>();
-        int lowX = x - 1 > 0 ? x - 1 : 0;
-        int lowY = y - 1 > 0 ? y - 1 : 0;
-        int highX = x + 1 < randomNums.length ? x + 2 : randomNums.length;
-        int highY = y + 1 < randomNums[0].length ? y + 2 : randomNums[0].length;
-        for (int i = lowX; i < highX; i++) {
-            for (int j = lowY; j < highY; j++) {
-                points.add(randomNums[i][j]);
-            }
-        }
-        return points;
+    public int getLenghtY() {
+        return this.randomNums[0].length;
     }
 
-    private void validate(int x, int y) throws OutOfLines {
-        if(x >= this.randomNums.length || y >= this.randomNums[0].length) {
-            String message = String.format("The coordinates should be less than {X: %d, Y: %d}",
-                    this.randomNums.length, this.randomNums[0].length);
-            throw new OutOfLines(message);
-        } else if(x < 0 || y < 0) {
-            String message = "The coordinates should be bigger than 0";
-            throw new OutOfLines(message);
-        }
+    public int getValue(int x, int y) {
+        return this.randomNums[x][y];
     }
 
     private void initRandomNums(int x, int y) {
